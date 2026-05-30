@@ -1,0 +1,69 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #080a0f;
+  color: #e0e0e0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.timeline-item {
+  @apply relative pl-8 pb-8;
+}
+
+.timeline-item::before {
+  @apply absolute left-0 top-2 w-4 h-4 rounded-full border-2 border-gray-600;
+  content: '';
+}
+
+.timeline-item::after {
+  @apply absolute left-[7px] top-7 h-[calc(100%-1.25rem)] w-px bg-slate-800;
+  content: '';
+}
+
+.timeline-item.memory::before {
+  @apply bg-purple-500 border-purple-600;
+}
+
+.timeline-item.detect::before {
+  @apply bg-red-500 border-red-600;
+}
+
+.timeline-item.investigate::before {
+  @apply bg-orange-500 border-orange-600;
+}
+
+.timeline-item.reason::before {
+  @apply bg-yellow-500 border-yellow-600;
+}
+
+.timeline-item.remediate::before {
+  @apply bg-blue-500 border-blue-600;
+}
+
+.timeline-item.learn::before {
+  @apply bg-green-500 border-green-600;
+}
+
+.timeline-item.complete::before {
+  @apply bg-emerald-500 border-emerald-600;
+}
+
+.timeline-item.verify::before {
+  @apply bg-cyan-500 border-cyan-600;
+}

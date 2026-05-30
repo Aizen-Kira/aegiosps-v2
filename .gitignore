@@ -1,0 +1,56 @@
+# Dependencies
+node_modules/
+frontend/node_modules/
+
+# Next.js / frontend build output
+.next/
+frontend/.next/
+out/
+dist/
+build/
+coverage/
+*.tsbuildinfo
+
+# Python
+venv/
+.venv/
+backend/venv/
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Runtime data / local databases
+*.sqlite
+*.sqlite3
+*.db
+*.db-shm
+*.db-wal
+
+# Logs and temp files
+*.log
+*.tmp
+*.cache
+logs/
+tmp/
+temp/
+
+# Environment and secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.crt
+credentials*.json
+service-account*.json
+gcloud-*.json
+
+# OS / editor junk
+.DS_Store
+Thumbs.db
+desktop.ini
+.idea/
+.vscode/

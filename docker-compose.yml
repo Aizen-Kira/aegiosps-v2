@@ -1,0 +1,40 @@
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    environment:
+      DEMO_MODE: ${DEMO_MODE:-true}
+      GEMINI_API_KEY: ${GEMINI_API_KEY:-}
+      GEMINI_MODEL: ${GEMINI_MODEL:-gemini-2.5-flash}
+      ARIZE_PHOENIX_API_KEY: ${ARIZE_PHOENIX_API_KEY:-}
+      PHOENIX_API_KEY: ${PHOENIX_API_KEY:-}
+      PHOENIX_AUTO_LAUNCH: ${PHOENIX_AUTO_LAUNCH:-false}
+      PHOENIX_BASE_URL: ${PHOENIX_BASE_URL:-http://host.docker.internal:6006}
+      PHOENIX_COLLECTOR_ENDPOINT: ${PHOENIX_COLLECTOR_ENDPOINT:-http://host.docker.internal:6006/v1/traces}
+      PHOENIX_PROJECT_NAME: ${PHOENIX_PROJECT_NAME:-aegisops-v2}
+      SIMILARITY_THRESHOLD: ${SIMILARITY_THRESHOLD:-0.65}
+      EMBEDDING_MODEL: ${EMBEDDING_MODEL:-all-MiniLM-L6-v2}
+      FIVETRAN_API_KEY: ${FIVETRAN_API_KEY:-}
+      FIVETRAN_API_SECRET: ${FIVETRAN_API_SECRET:-}
+      FIVETRAN_CONNECTOR_ID: ${FIVETRAN_CONNECTOR_ID:-salesforce-crm}
+      GITLAB_TOKEN: ${GITLAB_TOKEN:-}
+      GITLAB_PROJECT_ID: ${GITLAB_PROJECT_ID:-}
+      GITLAB_BASE_URL: ${GITLAB_BASE_URL:-https://gitlab.com/api/v4}
+      GOOGLE_CLOUD_PROJECT: ${GOOGLE_CLOUD_PROJECT:-}
+    volumes:
+      - ./backend:/app
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      BACKEND_URL: "http://backend:8000"
+      NEXT_PUBLIC_BACKEND_URL: "http://localhost:8000"
+    depends_on:
+      - backend
