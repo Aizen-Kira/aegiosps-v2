@@ -2,14 +2,8 @@ fastapi
 uvicorn
 pydantic
 google-generativeai
-arize-phoenix
 requests
 python-dotenv
-pandas
-openpyxl
-tabulate
 httpx
 sse-starlette
 numpy
-sentence-transformers
-scikit-learn
